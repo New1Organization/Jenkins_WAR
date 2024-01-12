@@ -6,6 +6,9 @@
 trigger:
 - master
 
+variables:
+  - group: ADO_HCLAppScanPlugin
+  
 pool:
   vmImage: ubuntu-latest
 
