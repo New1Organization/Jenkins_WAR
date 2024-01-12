@@ -17,15 +17,16 @@ jobs:
   timeoutInMinutes: 1440
   
   steps:
-  displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
-  inputs:
-    AppSecTestService: '$(ASoC_CREDENTIALS)'
-    applications: '$(ASoC_AppID)'
-    scanname: 'ADO_Regression_ASoC_SAST_GenerateIRX_largeProjectScan_YAML'
-    ScanSpeedOptions: simple
-    type: staging
-    loginMethod: None
-    network: public
-    optimization: fastest
-    networkFile: public
-    intervention: false
+  - script: echo "This is a long-running task"
+    displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
+    inputs:
+      AppSecTestService: '$(ASoC_CREDENTIALS)'
+      applications: '$(ASoC_AppID)'
+      scanname: 'ADO_Regression_ASoC_SAST_GenerateIRX_largeProjectScan_YAML'
+      ScanSpeedOptions: simple
+      type: staging
+      loginMethod: None
+      network: public
+      optimization: fastest
+      networkFile: public
+      intervention: false
