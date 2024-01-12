@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: HCLTechnologies.ApplicationSecurity-VSTS.custom-asoc-task.HCLAppScanOnCloud@2
+  displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
+  inputs:
+    AppSecTestService: '$(ASoC_CREDENTIALS)'
+    applications: '$(ASoC_AppID)'
+    scanname: 'ADO_ASoC_Regression_SAST'
+    ScanSpeedOptions: simple
+    type: staging
+    loginMethod: None
+    network: public
+    optimization: fastest
+    networkFile: public
+    intervention: false
