@@ -12,13 +12,17 @@ variables:
 pool:
   vmImage: ubuntu-latest
 
+jobs:
+- job: ADO_Regression_ASoC_SAST_GenerateIRX_largeProjectScan_YAML
+  timeoutInMinutes: 1440
+
 steps:
 - task: HCLTechnologies.ApplicationSecurity-VSTS.custom-asoc-task.HCLAppScanOnCloud@2
   displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
   inputs:
     AppSecTestService: '$(ASoC_CREDENTIALS)'
     applications: '$(ASoC_AppID)'
-    scanname: 'ADO_ASoC_Regression_SAST'
+    scanname: 'ADO_Regression_ASoC_SAST_GenerateIRX_largeProjectScan_YAML'
     ScanSpeedOptions: simple
     type: staging
     loginMethod: None
