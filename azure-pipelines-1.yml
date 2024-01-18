@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+variables:
+  - group: ADO_HCLAppScanPlugin
+  
+pool:
+  name: '$(Private_Agent_Pool)'
+
+steps:
+- task: HCLTechnologies.ApplicationSecurity-VSTS.custom-asoc-task.HCLAppScanOnCloud@2
+  displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
+  inputs:
+    AppSecTestService: '$(A360_CREDENTIALS)'
+    applications: '$(APPSCAN360_AppID)'
+    scanname: 'ADO_Regression_A360_SAST_UploadLargeWAR_YAML'
+    scanloc: 'jenkins.war'
+    scanMethod: IRXless
+    ScanSpeedOptions: simple
+    intervention: false
