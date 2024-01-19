@@ -1,0 +1,20 @@
+trigger:
+- master
+
+variables:
+  - group: ADO_HCLAppScanPlugin
+  
+pool:
+  name: '$(Private_Agent_Pool)'
+
+steps:
+- task: HCLTechnologies.ApplicationSecurity-VSTS.custom-asoc-task.HCLAppScanOnCloud@2
+  displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
+  inputs:
+    AppSecTestService: '$(A360_CREDENTIALS)'
+    applications: '$(APPSCAN360_AppID)'
+    scanname: 'ADO_Regression_A360_SAST_GenerateIRX_largeProjectScan_YAML'
+    ScanSpeedOptions: simple
+    loginMethod: None
+    network: public
+    intervention: false
