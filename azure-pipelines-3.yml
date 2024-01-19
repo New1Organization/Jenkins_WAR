@@ -1,0 +1,22 @@
+trigger:
+- master
+
+variables:
+  - group: ADO_HCLAppScanPlugin
+  
+pool:
+  name: ubuntu-latest
+
+steps:
+- task: HCLTechnologies.ApplicationSecurity-VSTS.custom-asoc-task.HCLAppScanOnCloud@2
+  displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
+  inputs:
+    AppSecTestService: '$(ASoC_CREDENTIALS)'
+    applications: '$(ASoC_AppID)'
+    scanname: 'ADO_Regression_ASoC_SAST_UploadLargeWAR_YAML'
+    scanloc: jenkins.war
+    scanMethod: IRXless
+    ScanSpeedOptions: simple
+    loginMethod: None
+    network: public
+    intervention: false
