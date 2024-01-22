@@ -7,6 +7,10 @@ variables:
 pool:
   name: '$(Private_Agent_Pool)'
 
+jobs:
+- job: ADO_Regression_A360_SAST_GenerateIRX_largeProjectScan_YAML
+  timeoutInMinutes: 1440
+
 steps:
 - task: HCLTechnologies.ApplicationSecurity-VSTS.custom-asoc-task.HCLAppScanOnCloud@2
   displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
