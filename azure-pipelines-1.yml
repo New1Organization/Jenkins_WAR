@@ -8,14 +8,14 @@ jobs:
 - job: ADO_Regression_A360_SAST_UploadLargeWAR_YAML
   timeoutInMinutes: 1440
 
-steps:
-- task: HCLAppScanOnCloud@2
-  displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
-  inputs:
-    AppSecTestService: '$(A360_CREDENTIALS)'
-    applications: '$(APPSCAN360_AppID)'
-    scanname: 'ADO_Regression_A360_SAST_UploadLargeWAR_YAML'
-    scanloc: 'jenkins.war'
-    scanMethod: IRXless
-    ScanSpeedOptions: simple
-    intervention: false
+  steps:
+  - task: HCLAppScanOnCloud@2
+    displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
+    inputs:
+      AppSecTestService: '$(A360_CREDENTIALS)'
+      applications: '$(APPSCAN360_AppID)'
+      scanname: 'ADO_Regression_A360_SAST_UploadLargeWAR_YAML'
+      scanloc: 'jenkins.war'
+      scanMethod: IRXless
+      ScanSpeedOptions: simple
+      intervention: false
