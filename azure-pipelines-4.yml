@@ -1,0 +1,15 @@
+variables:
+  - group: ADO_HCLAppScanPlugin
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: HCLAppScanOnCloud@2
+  timeoutInMinutes: 1440
+  displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
+  inputs:
+    AppSecTestService: '$(ASoC_CREDENTIALS)'
+    applications: '$(ASoC_AppID)'
+    scanname: 'ADO_Regression_ASoC_LargeProject_SCA_YAML'
+    scantype: sca
