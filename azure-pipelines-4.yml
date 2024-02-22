@@ -6,7 +6,7 @@ pool:
 
 steps:
 - task: HCLAppScanOnCloud@2
-  timeoutInMinutes: 1440
+  timeoutInMinutes: 9999
   displayName: 'Run HCL AppScan on Cloud/HCL AppScan 360° Security Test'
   inputs:
     AppSecTestService: '$(ASoC_CREDENTIALS)'
