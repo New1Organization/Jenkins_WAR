@@ -6,7 +6,7 @@ pool:
 
 jobs:
 - job: ADO_Regression_ASoC_SAST_GenerateIRX_largeProjectScan_YAML
-  timeoutInMinutes: 1440
+  timeoutInMinutes: 9999
   
   steps:
   - task: HCLAppScanOnCloud@2
